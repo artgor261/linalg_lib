@@ -7,9 +7,9 @@ This project consists of three files:
 3. `main.c` - executable file which demonstrates library API
 
 
-## Usage
+# Usage
 
-### construct_matrix
+## construct_matrix
 
 **Signature:** `int **construct_matrix(int shape[2]);`
 
@@ -22,7 +22,7 @@ int shape[2] = {3, 2};
 int **matrix = construct_matrix(shape);
 ```
 
-### init
+## init
 
 **Signature:** `void init(int *shape);`
 
@@ -35,7 +35,7 @@ int shape[2];
 init(shape);
 ```
 
-### print_matrix
+## print_matrix
 
 **Signature:** `void print_matrix(int **matrix, int shape[2]);`
 
@@ -49,7 +49,7 @@ int matrix[3][2] = {{2, 1}, {3, 4}, {7, 2}};
 print_matrix(matrix, shape);
 ```
 
-### clear
+## clear
 
 **Signature:** `void clear(int **matrix, int shape[2]);`
 
@@ -77,7 +77,7 @@ print_matrix(matrix, shape);
 clear(matrix, shape);
 ```
 
-### multiple
+## multiple
 
 **Signature:** `void multiple(int **matrix_1, int **matrix_2, int **result, int shape_1[2], int shape_2[2]);`
 
@@ -104,7 +104,7 @@ clear(matrix_2);
 clear(result);
 ```
 
-### sum
+## sum
 
 **Signature:** `void sum(int **matrix_1, int **matrix_2, int **result, int shape[2]);`
 
