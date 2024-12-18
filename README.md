@@ -18,8 +18,12 @@ This function creates a matrix based on `shape` parameter. `malloc` invoked with
 **Example:**
 
 ```
+int i, j;
 int shape[2] = {3, 2};
 int **matrix = construct_matrix(shape);
+
+print_matrix(matrix, shape);
+clear(matrix, shape);
 ```
 
 ## init
