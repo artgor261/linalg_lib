@@ -13,7 +13,7 @@ This project consists of three files:
 
 **Signature:** `int **construct_matrix(int shape[2]);`
 
-This function creates a matrix based on `shape` parameter. The matrix memory allocated within it. `construct_matrix` returns two-dimensional array like pointer on pointer.
+This function creates a matrix based on `shape` parameter. `malloc` invoked within body. `construct_matrix` returns a two-dimensional array (matrix) like pointer on pointer.
 
 **Example:**
 
