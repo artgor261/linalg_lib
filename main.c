@@ -11,7 +11,7 @@ int main(void){
         // we can validate an input by 'ch' and 'i'
         i = getchar();
         if (ch=='+' && i=='\n'){
-            int shape[2]; // matrices shoud be one shape when sum 
+            int shape[2]; // matrices shoud be one shape when they sum 
             int **matrix_1;
             int **matrix_2;
             int **result;
@@ -59,7 +59,7 @@ int main(void){
         }
         // clearing stdin
         while ( (ch=getchar()) != EOF && ch != '\n'){ }
-        printf("Print command(print 'Ctrl+C' if you want to exit: ");
+        printf("Print command(press 'Ctrl+C' if you want to exit: ");
     }
     // finally clearing stdin just in case
     while ( (ch=getchar()) != EOF && ch != '\n'){ }
