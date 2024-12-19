@@ -8,7 +8,7 @@ int main(void){
 
     printf("Print command(press 'Ctrl+C' if you want to exit: ");
     while ( (ch=getchar()) != EOF){
-        // we can validate an input by that
+        // we can validate an input by 'ch' and 'i'
         i = getchar();
         if (ch=='+' && i=='\n'){
             int shape[2]; // matrices shoud be one shape when sum 
