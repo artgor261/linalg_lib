@@ -1,132 +1,95 @@
 # linalg_lib
 
-This project consists of three files:
+Simple linear algebra API.
 
-1. `linalg.h` - header file which stores functions signatures
-2. `linalg.c` - `.c` file which includes functions implementations
-3. `main.c` - executable file which demonstrates library API
+This library includes two base linear algebra objects: `vector` and `matrix`. You can do different operations with them, which can help you in your scientific or engineering computations. See below for more information about library abilities.
 
+## Usage
 
-# Usage
+### User Guide
 
-## construct_matrix
-
-**Signature:** `int **construct_matrix(int shape[2]);`
-
-This function creates a matrix based on `shape` parameter. `malloc` invoked within body. `construct_matrix` returns a two-dimensional array (matrix) like pointer on pointer.
-
-**Example:**
+There are two main objects: `vector` and `matrix`. To create it use the follwing syntax:
 
 ```
-int i, j;
-int shape[2] = {3, 2};
-int **matrix = construct_matrix(shape);
-
-print_matrix(matrix, shape);
-clear(matrix, shape);
+matrix mrx;
+vector vect;
 ```
 
-## init
+`matrix` object has two fields: `int shape[2]` and `int **matrix`. `shape` is an array of matrix shape with length = 2. `matrix` is a two-dimensional array which stores matrix elements.
 
-**Signature:** `void init(int *shape);`
-
-Initialize a shape of matrix.
-
-**Example:**
+This structures are empty. To fill it use `clear_matrix()` and `clear_vect` functions:
 
 ```
-int shape[2];
-init(shape);
-```
-
-## print_matrix
-
-**Signature:** `void print_matrix(int **matrix, int shape[2]);`
-
-Printing matrix into `stdout`.
-
-**Example:**
-
-```
-int shape[2] = {3, 2};
-int matrix[3][2] = {{2, 1}, {3, 4}, {7, 2}};
-print_matrix(matrix, shape);
-```
-
-## clear
-
-**Signature:** `void clear(int **matrix, int shape[2]);`
-
-Clearing allocated memory used for storing matrix.
-
-**Example:**
-
-```
-int i, j;
+// matrix shape
 int shape[2] = {2, 2};
-int **matrix = (int **)malloc(shape[0]*sizeof(int *)));
 
-// filling matrix
-for (i=0;i<shape[0];i++){
-     matrix[i] = (int *)malloc(shape[1]*sizeof(int));
-     for (j=0;j<shape[1];j++){
-          matrix[i][j] = i*j;
-     }
-}
+// vector length
+int len = 5;
 
-// printing matrix
-print_matrix(matrix, shape);
+// filling
+fill_matrix(&mrx, shape);
+fill_vect(&vect, len);
 
-// clearing allocated memory
-clear(matrix, shape);
+// don't forget clearing created structures after using 
+clear_matrix(&mrx);
+clear_vect(%vect);
 ```
 
-## multiple
+First of all you should to initialize matrix shape and vector lenght. Then you invokes two functions for filling your structures which requires two parameters: `pointer` on matrix/vector and shape/length. Note that you have to send **pointer** on structure, but not structure. And don't forget clearing structures after its using. If you don't do this, you can spent a big amount of memory.
 
-**Signature:** `void multiple(int **matrix_1, int **matrix_2, int **result, int shape_1[2], int shape_2[2]);`
-
-Multiple two matrix.
-
-**Example:**
+You have created your structures, you filled it. May be you want to print them? To do this invokes `print_matrix()` and `print_vect()` functions:
 
 ```
-int shape_1[2] = {2, 3};
-int shape_2[2] = {3, 2};
-int **matrix_1;
-int **matrix_2;
-int **result;
+printf("\nMatrix: \n");
+print_matrix(mrx);
 
-matrix_1 = construct_matrix(shape_1);
-matrix_2 = constract_matrix(shape_2);
-result = (int **)malloc(shape_2[0]*sizeof(int *));
-
-multiple(matrix_1, matrix_2, result, shape_1, shape_2);
-print_matrix(result, shape_2);
-
-clear(matrix_1);
-clear(matrix_2);
-clear(result);
+printf("\nVector: ");
+print_vect(vect);
 ```
 
-## sum
+Paste the code above between filling and clearing code strings.
 
-**Signature:** `void sum(int **matrix_1, int **matrix_2, int **result, int shape[2]);`
-
-Sum two matrix.
-
-**Example:**
+Great. Let's try something more difficult. If you want to multiply two matrices use `multiply()` function:
 
 ```
-int shape[2] = {2, 2};
-int **matrix_1 = construct_matrix(shape);
-int **matrix_2 = construct_matrix(shape);
-int **result = (int **)malloc(shape[0]*sizeof(int *));
+// initializing shapes
+int shape_1[2] = {2, 2};
+int shape_2[2] = {2, 2};
 
-sum(matrix_1, matrix_2, result, shape);
-print_matrix(result, shape);
+// creates a third object which stores result of multiply
+matrix mrx_1, mrx_2, result;
 
-clear(matrix_1);
-clear(matrix_2);
-clear(result);
+// filling matrices
+fill_matrix(&mrx_1, shape_1);
+fill_matrix(&mrx_2, shape_2);
+
+// printing matrices
+printf("\nFirst matrix: \n");
+print_matrix(mrx_1);
+printf("\nSecond matrix: \n");
+print_matrix(mrx_2);
+
+// multiply and printing result
+multiply(mrx_1, mrx_2, &result);
+printf("\nResult matrix: \n");
+print_matrix(result);
+
+// clearing 
+clear_matrix(&mrx_1);
+clear_matrix(&mrx_2);
+clear_matrix(&result);
 ```
+
+`multiply()` function multiply two matrices and save result into result matrix. Note that **result** parameter should be a **pointer** on structure and two matrices should be structures. And don't forget that `mrx_1.shape[1] = mrx_2.shape[0]` i.e. columns count of first matrix should be equal to rows count of second matrix.
+
+If you want to sum two matrices use `sum()` function:
+
+```
+
+```
+
+
+
+
+
 
