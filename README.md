@@ -2,22 +2,30 @@
 
 Simple linear algebra API.
 
-This library includes two base linear algebra objects: `vector` and `matrix`. You can do different operations with them, which can help you in your scientific or engineering computations. See below for more information about library abilities.
+This is the open-source project for 
 
 ## Usage
 
 ### User Guide
 
-There are two main objects: `vector` and `matrix`. To create it use the follwing syntax:
+There are two main objects: `vector` and `matrix`. To create it use the following syntax:
 
 ```
 matrix mrx;
 vector vect;
 ```
 
-`matrix` object has two fields: `int shape[2]` and `int **matrix`. `shape` is an array of matrix shape with length = 2. `matrix` is a two-dimensional array which stores matrix elements.
+You can get access to its fields by:
 
-This structures are empty. To fill it use `clear_matrix()` and `clear_vect` functions:
+```
+mrx.shape
+mrx.matrix
+
+vect.len
+vect.vector
+```
+
+This structures are empty. To fill it use `fill_matrix()` and `fill_vect` functions:
 
 ```
 // matrix shape
@@ -85,6 +93,23 @@ clear_matrix(&result);
 If you want to sum two matrices use `sum()` function:
 
 ```
+int shape[2] = {3, 3};
+matrix mrx_1, mrx_2, result;
+
+// matrices should be one shape when sum
+fill_matrix(&mrx_1, shape);
+fill_matrix(&mrx_2, shape);
+
+// sum two matrices and save result
+sum(mrx_1, mrx_2, &result);
+
+// print result
+print_matrix(result);
+
+// clearing
+clear(&mrx_1);
+clear(&mrx_2);
+clear(&result);
 
 ```
 
