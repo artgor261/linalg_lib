@@ -1,10 +1,10 @@
-# cimple_linalg
+# linalg_lib
 
 This is the open-source library for linear algebra operations with user-friendly API. It includes more different functions for quickly and effective scientific and engeneering computations with base linear algebra objects such as `vector` and `matrix`.
 
 ## Usage
 
-### User Guide
+### Quick Start
 
 There are two main objects: `vector` and `matrix`. To create it use the following syntax:
 
