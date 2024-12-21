@@ -1,8 +1,6 @@
-# linalg_lib
+# cimple_linalg
 
-Simple linear algebra API.
-
-This is the open-source project for 
+This is the open-source library for linear algebra operations with user-friendly API. It includes more different functions for quickly and effective scientific and engeneering computations with base linear algebra objects such as `vector` and `matrix`.
 
 ## Usage
 
